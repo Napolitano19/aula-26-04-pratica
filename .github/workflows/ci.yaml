@@ -1,14 +1,27 @@
-name: monster
-on: 
+name: CI Pipeline
+
+on:
   push:
-    branch: [main, develop, criacao-node]
+    branches:
+      - develop
     
   workflow_dispatch:
-  
-jobs:
+
+jobs: 
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print a message
-      run: echo "Olá, Mundo!"
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14' # Ajuste para a versão do Node.js que você está usando
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
