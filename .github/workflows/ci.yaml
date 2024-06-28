@@ -20,13 +20,9 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
+    - uses: actions/setup-node@v2
       with:
-        node-version: '16'
-
-    - name: Setup ESLint
-      run: npm install eslint eslint-config-airbnb-base --save-dev  # Instala ESLint e uma configuração base (exemplo)
+        node-version: '20'
 
     - name: Run ESLint
       run: npm run lint
