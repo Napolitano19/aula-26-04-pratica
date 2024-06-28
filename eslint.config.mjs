@@ -12,6 +12,9 @@ export default [
       globals: {
         __dirname: "readonly" // Permite o uso de __dirname como variável global de leitura
       }
+    },
+    rules: {
+      "constructor-super": "off" // Desativa a regra problemática
     }
   },
   {
