@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+// Verifica se este arquivo está sendo executado diretamente
 if (require.main === module) {
     app.listen(porta, () => {
         console.log(`O servidor está rodando na porta http://localhost:${porta}`);
