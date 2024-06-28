@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - develop
+      - addEslint
     
   workflow_dispatch:
 
@@ -25,3 +25,10 @@ jobs:
 
     - name: Run tests
       run: npm test
+
+    - uses: actions/setup-node@v2
+        with:
+        node-version: '20'
+        
+    - name: Run ESLint
+      run: npm run lint

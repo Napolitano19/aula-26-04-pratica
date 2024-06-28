@@ -1,28 +1,19 @@
-const express = require('express')
-const porta = 80
-const app = express()
-const path = require('path')
+const express = require('express');
+const path = require('path');
+const app = express();
 
-app.use(express.static(path.join(__dirname, 'public')))
+const porta = 80;
 
-app.get('/', (req, res) => {
-    res.sendFile('views/index.html', {root: __dirname})
-})
-
-app.listen(porta, () => {
-    console.log(`O servidor está rodando na porta http://localhost:${porta}`)
-})
-/*const express = require('express')
-const porta = 3000
-const path = require('path')
-const app = express()
-
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile('views/index.html', { root: __dirname})
-})
+    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
 
-app.listen(porta, () => {
-    console.log(`Servidor rodando na porta http://localhost:${porta}`)
-})*/
+if (require.main === module) {
+    app.listen(porta, () => {
+        console.log(`O servidor está rodando na porta http://localhost:${porta}`);
+    });
+}
+
+module.exports = app;
