@@ -16,3 +16,13 @@ describe('GET /', () => {
         expect(res.text).toBe(indexHtmlContent);
     });
 });
+
+describe('Teste do servidor', () => {
+    it('Deve iniciar o servidor corretamente', async () => {
+        const response = await request(app).get('/');
+
+        expect(response.status).toEqual(200); // Verifica se o servidor responde com sucesso (status 200)
+        expect(response.text).toContain('<h1>HELLO, WORLD!</h1>'); // Verifica se a página inicial contém a saudação esperada
+    });
+});
+
